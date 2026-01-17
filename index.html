@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>冯骏飞｜简历</title>
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#101826;
+      --ink:#e9eef7;
+      --muted:#b8c2d6;
+      --line:rgba(233,238,247,.12);
+      --accent:#7cc7ff;
+      --accent2:#b6ffb0;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f6f8fb; --card:#ffffff; --ink:#0c1625; --muted:#4b5a73; --line:rgba(12,22,37,.10); --shadow: 0 10px 26px rgba(12,22,37,.10); }
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", Arial, sans-serif;
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{ text-decoration:underline }
+
+    .wrap{ max-width: 980px; margin: 28px auto 60px; padding: 0 18px; }
+
+    .hero{
+      background: linear-gradient(135deg, rgba(124,199,255,.18), rgba(182,255,176,.10));
+      border:1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 22px 22px 18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      right:-120px; top:-120px;
+      width:260px; height:260px;
+      background: radial-gradient(circle at 30% 30%, rgba(124,199,255,.45), transparent 60%);
+      filter: blur(4px);
+      opacity:.8;
+    }
+    .name{
+      display:flex; align-items:flex-end; gap:14px; flex-wrap:wrap;
+    }
+    .name h1{ margin:0; font-size: 34px; letter-spacing: .5px; }
+    .tag{
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(16,24,38,.45);
+      color: var(--muted);
+    }
+    @media (prefers-color-scheme: light){
+      .tag{ background: rgba(246,248,251,.8); }
+    }
+
+    .meta{ margin-top:10px; display:flex; flex-wrap:wrap; gap:10px 14px; color:var(--muted); }
+    .meta span{ display:inline-flex; gap:8px; align-items:center; }
+    .dot{ width:6px; height:6px; border-radius:50%; background: var(--accent); display:inline-block; opacity:.85 }
+
+    .actions{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(16,24,38,.55);
+      color: var(--ink);
+      font-size: 13px;
+      cursor:pointer;
+    }
+    @media (prefers-color-scheme: light){
+      .btn{ background: rgba(255,255,255,.9); }
+    }
+    .btn strong{ font-weight:600 }
+
+    .grid{ display:grid; grid-template-columns: 1fr; gap:14px; margin-top:14px; }
+    @media (min-width: 920px){ .grid{ grid-template-columns: 1fr 1fr; } }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 18px 18px 14px;
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size: 16px;
+      letter-spacing: .2px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .card h2 small{ color:var(--muted); font-weight:500; font-size:12px }
+    .card p{ margin: 0 0 10px; color: var(--ink); }
+
+    .pillrow{ display:flex; gap:8px; flex-wrap:wrap; }
+    .pill{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: rgba(16,24,38,.35);
+    }
+    @media (prefers-color-scheme: light){
+      .pill{ background: rgba(246,248,251,.75); }
+    }
+
+    .section{ margin-top: 14px; }
+    .section h3{
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: .25px;
+      text-transform: none;
+    }
+    ul{ margin: 8px 0 0 18px; padding:0; }
+    li{ margin: 6px 0; }
+    .muted{ color: var(--muted); }
+    .hr{ height:1px; background: var(--line); margin: 12px 0; }
+
+    .xp{ margin-top: 14px; }
+    .xp-item{ padding: 16px 0; border-top: 1px solid var(--line); }
+    .xp-item:first-child{ border-top:0; padding-top: 0; }
+    .xp-head{ display:flex; flex-wrap:wrap; gap:10px 14px; align-items:baseline; justify-content:space-between; }
+    .xp-title{ font-weight:700; font-size: 15px; }
+    .xp-sub{ color: var(--muted); font-size: 13px; }
+    .xp-role{ color: var(--ink); font-size: 13px; }
+    .xp-key{ margin-top: 8px; color: var(--muted); font-size: 13px; }
+    .xp-key b{ color: var(--ink); font-weight: 650; }
+
+    .kpi{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .kpi .pill{ border-color: rgba(124,199,255,.35); color: var(--ink); }
+
+    .footer{
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align:center;
+    }
+
+    /* Print */
+    @media print{
+      body{ background:#fff; color:#000; }
+      .wrap{ margin: 0; max-width:none; padding: 0; }
+      .hero, .card{ box-shadow:none; }
+      .hero:before{ display:none; }
+      .btn{ display:none; }
+      .tag{ background:#fff; }
+      a{ text-decoration:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <section class="hero" aria-label="header">
+      <div class="name">
+        <h1>冯骏飞</h1>
+        <span class="tag">稳健型制造业破局官</span>
+        <span class="tag">营销/品牌顾问</span>
+      </div>
+      <div class="meta">
+        <span><i class="dot"></i> 13636901823</span>
+        <span><i class="dot"></i> hehe1898@126.com</span>
+        <span><i class="dot"></i> 39 岁｜女｜深圳</span>
+        <span><i class="dot"></i> 方向：女性消费品 / 消费电子 / 宠物｜CMO｜品牌市场总监</span>
+      </div>
+      <div class="actions">
+        <a class="btn" href="冯骏飞20260117.pdf" download><strong>下载 PDF</strong></a>
+        <button class="btn" onclick="window.print()"><strong>打印 / 导出 PDF</strong></button>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="card" aria-label="summary">
+        <h2>自我评价 <small>一页读懂</small></h2>
+        <p><strong>专注制造企业破局阶段：把专业优势翻译给市场，用小实验探出新路径。</strong></p>
+        <ul>
+          <li><strong>背景定位：</strong>15 年消费品与制造企业品牌经验，横跨 3 个国家、7 个区域，长期服务于制造型企业在旧增长失效阶段的转型与破局。</li>
+          <li><strong>核心价值：</strong>既理解工厂、技术与产品的专业逻辑，又能将其翻译为消费者与采购决策人听得懂、愿意为之买单的市场语言，解决“东西很好，但外界听不懂、不相信、不选择”的沟通断层问题。</li>
+          <li><strong>破局方式：</strong>不以颠覆为目标，而以低风险、小规模验证为原则，引入新的判断与路径，通过真实结果暴露旧逻辑的边界，帮助企业在不伤主业的前提下，找到可能的下一条路。</li>
+          <li><strong>角色特征：</strong>作为外部“鲶鱼型”变量，引入不同于组织惯性的经验与视角，为经营层提供观察组织反应的清晰参照，为组织下一步能力升级提供判断基础。</li>
+          <li><strong>当前阶段：</strong>以顾问身份介入企业关键节点，协助决策者把复杂问题想清楚、把风险控制住、把新路径试出来。</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-label="highlights">
+        <h2>关键亮点 <small>给老板看的证据</small></h2>
+        <div class="pillrow">
+          <span class="pill">3 国 / 7 区域</span>
+          <span class="pill">CPC ↓27%</span>
+          <span class="pill">CTR ↑25%</span>
+          <span class="pill">获客成本 ↓30%</span>
+          <span class="pill">品牌增速 ↑17%（行业 5%）</span>
+          <span class="pill">抖音电商 0–1</span>
+          <span class="pill">KA：山姆 / 沃尔玛</span>
+        </div>
+        <div class="section">
+          <h3>你可以快速获得的价值</h3>
+          <ul>
+            <li>把工厂/技术/产品优势翻译为“市场听得懂、决策愿意买单”的表达体系</li>
+            <li>在不伤主业的前提下，用小实验验证新路径，降低试错成本</li>
+            <li>通过外部变量与事实结果，帮助经营层观察组织反应并推动能力升级</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <section class="card xp" aria-label="experience">
+      <h2>工作经历 <small>按时间倒序</small></h2>
+
+      <div class="xp-item">
+        <div class="xp-head">
+          <div>
+            <div class="xp-title">国内企业营销咨询顾问</div>
+            <div class="xp-sub">2023.03–至今｜深圳</div>
+          </div>
+          <div class="xp-role">核心角色：以营销公司外部专家身份，为企业提供定制化商业解决方案，通过项目制咨询驱动品牌增长与营销创新。</div>
+        </div>
+        <div class="xp-key"><b>服务企业（品牌）：</b>汇洁集团（曼妮芬、兰卓丽）、百丽（妙丽）、海大装修等。</div>
+        <div class="section">
+          <h3>1. 重大营销事件与新品方向建议</h3>
+          <ul>
+            <li><strong>重大营销事件方向判断：</strong>围绕年度关键营销节点（如品牌升级期、大促节点），为品牌提供核心传播主题与内容表达方向建议，明确“这一仗打什么、怎么说”。</li>
+            <li><strong>新品传播方向建议：</strong>针对新品上市阶段，围绕品牌核心卖点表达、消费者沟通角度与内容侧重点，帮助品牌在首轮传播中说清“为什么是现在、为什么是它”。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>2. 新品牌 0–1 阶段营销顾问支持</h3>
+          <ul>
+            <li><strong>品牌起步阶段的核心判断：</strong>在新品牌从 0–1 的起步期，帮助品牌理清要抓住的核心人群、主要使用场景与对外沟通重点，明确“这个品牌首先要被记住的是什么”。</li>
+            <li><strong>第一阶段营销重点建议：</strong>围绕起步期目标，提出首阶段优先推进的营销方向与内容重点建议，帮助团队明确“第一步先做什么、不急着做什么”。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>3. 社交媒体内容方向与方案建议</h3>
+          <ul>
+            <li><strong>平台内容方向判断：</strong>针对品牌在小红书、抖音等社交平台表现不理想的情况，诊断该平台当前应重点传达的内容主题与表达方式，回答“这个平台现在该怎么跟用户说话”。</li>
+            <li><strong>运营问题拆解与改进建议：</strong>围绕实际运营困境（如内容没人看、互动低、转化弱），拆解问题成因，并给出针对性的内容调整与运营优化建议，帮助团队明确“问题在哪里、该怎么改”。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-head">
+          <div>
+            <div class="xp-title">海外营销咨询顾问｜马来西亚 Sense</div>
+            <div class="xp-sub">2023.03–至今｜深圳</div>
+          </div>
+          <div class="xp-role">核心角色：直接受聘于创始人，以顾问与方法输出支持产品概念、内容获客与营销效率优化（不承担团队执行）。</div>
+        </div>
+        <div class="kpi">
+          <span class="pill">CPC ↓27%</span>
+          <span class="pill">Facebook 获客</span>
+          <span class="pill">概念：捏骨式纹眉</span>
+          <span class="pill">产品：鼻影眉</span>
+        </div>
+        <div class="section">
+          <h3>1. 产品与服务概念重构</h3>
+          <ul>
+            <li><strong>产品概念包装与命名建议：</strong>提出“捏骨式纹眉”概念，并在体系下定义“鼻影眉”产品，帮助品牌将技术优势转化为消费者可理解、可传播的卖点。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>2. 获客逻辑与内容方向建议</h3>
+          <ul>
+            <li><strong>获客渠道与内容方向判断：</strong>以 Facebook 为主要获客渠道，参与判断短视频内容方向与达人合作思路，为团队提供可执行的内容与投放策略建议。</li>
+            <li><strong>效率优化结果：</strong>在概念与内容方向调整后，协助团队优化投放结构，使单次点击成本（CPC）降低 27%。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>3. 团队能力补位与方法输出</h3>
+          <ul>
+            <li><strong>执行级问题解答与培训支持：</strong>在产品、内容、投放、客服等日常运营问题上提供判断与解决思路，并通过培训提升团队独立运作能力。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-head">
+          <div>
+            <div class="xp-title">深圳市建源达镜业有限公司</div>
+            <div class="xp-sub">2020.03–2023.02｜深圳</div>
+          </div>
+          <div class="xp-role">副总经理兼市场总监｜总经办｜汇报：总经理</div>
+        </div>
+        <p class="muted">公司简介：全球知名 LED 化妆镜生产企业，YSL、雅诗兰黛等品牌合作伙伴；斐色耐 FASCINATE 为 LED 化妆镜 TOP 企业；自有供应链与研发中心，160+ 项专利。</p>
+        <div class="xp-key"><b>核心角色：</b>对经营结果负责，一方面搭建新的内容电商变现渠道，另一方面提升成熟电商效率，把营销从“花钱”变为“赚钱”。</div>
+        <div class="kpi">
+          <span class="pill">CTR ↑25%</span>
+          <span class="pill">获客成本 ↓30%</span>
+          <span class="pill">抖音 0–1</span>
+          <span class="pill">KA：山姆 / 沃尔玛</span>
+        </div>
+        <div class="section">
+          <h3>1. 成熟电商提效与扭亏</h3>
+          <ul>
+            <li><strong>配合提升进店与转化效率：</strong>改造天猫、京东核心页面与物料呈现，重梳卖点、结构与展示方式，使点击率提升 25%，获客成本下降 30%，为扭亏提供关键支持。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>2. 抖音内容电商从 0–1 搭建，新增变现渠道</h3>
+          <ul>
+            <li><strong>搭建抖音电商体系：</strong>覆盖账号运营、店铺搭建、短视频带货、达人合作、达人直播、品牌自播及投流。</li>
+            <li><strong>内容矩阵创立与运营：</strong>将内容生产与销售目标挂钩，围绕用户需求拆解选题与脚本，推动内容从“好看”转向“能卖”。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>3. 品牌策略与全域获客</h3>
+          <ul>
+            <li><strong>品牌定位与 CIS：</strong>明确核心人群、使用场景与价格逻辑，确保表达与转化一致。</li>
+            <li><strong>全域营销：</strong>稳定运营小红书、知乎、SEO、公众号、微博、抖音六大板块，围绕拉新与复购服务业务增长。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>4. 大客户开发与销售支持</h3>
+          <ul>
+            <li><strong>KA 准入：</strong>参与山姆、沃尔玛、天虹等重点客户选品与方案制定，协助完成入驻与维护。</li>
+            <li><strong>竞争策略：</strong>跟踪渠道竞品动态，制定销售促进方案，提升终端竞争力与份额。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>5. 复合型团队建设</h3>
+          <ul>
+            <li><strong>架构组建：</strong>招聘并组建品牌营销、商务开发、创意文案、视觉设计四大板块，建立协同标准。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-head">
+          <div>
+            <div class="xp-title">深圳市海洋之星宠物食品有限公司</div>
+            <div class="xp-sub">2019.03–2019.11｜深圳</div>
+          </div>
+          <div class="xp-role">市场总监｜市场部｜汇报：总经理</div>
+        </div>
+        <p class="muted">公司简介：成立于 2012 年，国内 TOP5 宠物食品品牌；线下覆盖全国 31 个省市，线上具备完备分销网络。</p>
+        <div class="xp-key"><b>核心角色：</b>在内容营销兴起阶段，建立社群、抖音内容和达人带货等新增长模式，推动品牌从传统营销转向品销合一。</div>
+        <div class="section">
+          <h3>1. 品牌战略与新渠道从 0–1 搭建</h3>
+          <ul>
+            <li><strong>品牌体系：</strong>规划品牌战略与 CIS，基于“拟人化/养孩化”消费心理确立沟通策略。</li>
+            <li><strong>新模式探索：</strong>搭建社群、新零售与网红带货模式，利用内容营销实现早期声量积累。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>2. 销售支持与品效协同</h3>
+          <ul>
+            <li><strong>终端营销：</strong>根据销售需求制定赋能方案，通过样板门店与落地活动支持零售转化。</li>
+            <li><strong>复盘优化：</strong>关注营销活动与销售数据关联，持续调整投放结构贴近增长需求。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>3. 团队统筹与运营</h3>
+          <ul>
+            <li><strong>多职能管理：</strong>统筹品牌营销、文案策划、展会执行、CRM，负责招聘、培训与绩效管理。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-head">
+          <div>
+            <div class="xp-title">深圳奥美生活科技有限公司</div>
+            <div class="xp-sub">2018.07–2019.03｜深圳</div>
+          </div>
+          <div class="xp-role">市场总监｜市场中心｜汇报：总经理</div>
+        </div>
+        <p class="muted">公司简介：奥美医疗旗下 2C 生活用品品牌，依托母公司的生产与 EO 灭菌技术，定位国内高端生活用品。</p>
+        <div class="xp-key"><b>核心角色：</b>负责品牌从 0–1 的顶层设计与体系化搭建，将 2B 的医用标准转化为 2C 的消费品牌能力。</div>
+        <div class="section">
+          <h3>1. 品牌战略构建与“医研家享”体系</h3>
+          <ul>
+            <li><strong>品牌顶层设计：</strong>从零构建 CIS，确立“医用标准生活化”的差异化战略。</li>
+            <li><strong>标准升级：</strong>将医疗级卫生标准引入生活用品（如灭菌卫生巾），建立专业化壁垒。</li>
+            <li><strong>营销矩阵：</strong>拆解年度预算，构建线上/线下/社交电商线条，整合影视综艺、明星等资源提升声量。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>2. 全品类产品规划与开发控制</h3>
+          <ul>
+            <li><strong>产品线谱：</strong>制定棉干巾、湿巾、卫生巾、纸尿裤、纱布浴巾等策略，完成从进入到成熟期布局。</li>
+            <li><strong>质量与成本：</strong>统筹开发流程，执行医用级成品控制标准，确保产品力支撑溢价。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>3. 部门组建与中台管理</h3>
+          <ul>
+            <li><strong>职能筹建：</strong>从 0 组建并管理产品部、策划推广部、设计部、会员部。</li>
+            <li><strong>协同机制：</strong>打通研发设计到会员运营闭环，支撑起步期快速迭代。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-head">
+          <div>
+            <div class="xp-title">丝宝集团（洁婷）</div>
+            <div class="xp-sub">2016.05–2018.07｜武汉</div>
+          </div>
+          <div class="xp-role">品牌策划经理｜洁婷市场部｜汇报：市场总监</div>
+        </div>
+        <div class="kpi">
+          <span class="pill">品牌增速 ↑17%</span>
+          <span class="pill">行业均值 5%</span>
+        </div>
+        <div class="xp-key"><b>核心角色：</b>负责品牌在增长瓶颈期的整体重构与再增长。</div>
+        <div class="section">
+          <h3>1. 品牌策略与产品体系</h3>
+          <ul>
+            <li><strong>老品牌焕新：</strong>基于洞察重塑形象与调性，完成全线产品迭代，将增速提升至 17%（行业均值 5%）。</li>
+            <li><strong>新品孵化：</strong>主导 1 个副品牌及 4 个新系列孵化，负责定位、产品树、视觉与营销全案管理。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>2. 经营分析与费用预算</h3>
+          <ul>
+            <li><strong>战略拆解：</strong>分析经营数据制定年度/季度策略，将目标转化为预算与推广计划。</li>
+            <li><strong>效率优化：</strong>管控线下推广费用，建立“投入-效果”复盘机制，提升营销 ROI。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>3. 团队管理与协同</h3>
+          <ul>
+            <li><strong>跨职能领导：</strong>负责产品、营销、数据分析三个团队的日常管理与梯队建设。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-head">
+          <div>
+            <div class="xp-title">恒安集团</div>
+            <div class="xp-sub">2011.03–2016.05｜泉州（海外品牌经理：2013.03–2016.05）</div>
+          </div>
+          <div class="xp-role">海外品牌经理｜市场品牌部｜汇报：集团 COO</div>
+        </div>
+        <div class="xp-key"><b>核心角色：</b>负责海外新市场从战略规划到品牌上市、渠道落地的整体操盘。</div>
+        <div class="section">
+          <h3>1. 战略规划与预算管理</h3>
+          <ul>
+            <li><strong>市场战略：</strong>负责纸尿裤品牌海外市场战略规划，并按全球目标拆解区域年度经营计划。</li>
+            <li><strong>预算目标：</strong>制定年度销售目标及费用预算，监督执行进度，确保业绩指标达成。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>2. 产品开发与市场洞察</h3>
+          <ul>
+            <li><strong>区域研究：</strong>负责菲律宾、印尼、韩国、香港等市场，分析竞争与消费者行为，识别机会。</li>
+            <li><strong>新品管理：</strong>主导新品开发全流程，协调资源推动研发、生产与上市。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>3. 品牌营销与渠道建设</h3>
+          <ul>
+            <li><strong>品牌上市：</strong>组织海外新品开发及上市活动；印尼市场主导 Cheris 上市策略与执行。</li>
+            <li><strong>分销网络：</strong>在印尼等市场建立覆盖商超、传统小店、母婴专卖店及医院的网络，实现区域覆盖。</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>4. 团队组建与日常管理</h3>
+          <ul>
+            <li><strong>团队建设：</strong>配合海外团队招聘与定岗，完成跨国团队组建、绩效、培训等管理工作。</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="grid">
+      <section class="card" aria-label="education">
+        <h2>教育背景</h2>
+        <ul>
+          <li><strong>广西大学</strong>｜企业战略和营销专业｜全日制硕士（2009.09–2012.07）</li>
+          <li><strong>绍兴文理学院</strong>｜自动化专业｜全日制本科（学士）（2004.09–2008.07）</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-label="skills">
+        <h2>技能与证书</h2>
+        <ul>
+          <li><strong>专业技能：</strong>熟练操作 Office 软件、精通 PPT、掌握爬虫技术</li>
+          <li><strong>证书：</strong>工信部教育与考试中心《数据分析（初级）》</li>
+          <li><strong>语言：</strong>CET-6、剑桥商务英语中级｜日语简单沟通｜粤语精通</li>
+          <li><strong>其他：</strong>曾担任 7 年电视节目主持人、晚会主持人</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="footer">
+      <div>本网页由 PDF 简历内容生成，建议在浏览器中使用“打印 / 导出 PDF”获取正式版。</div>
+    </div>
+
+  </div>
+</body>
+</html>
